@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.scss" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+    />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"> -->
+    <link href="assets/css/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/alert.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    #testimonials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+    .testimonial-heading {
+      letter-spacing: 1px;
+      margin: 30px 0px;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .testimonial-heading span {
+      font-size: 1.3rem;
+      color: #252525;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .testimonial-box-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .testimonial-box {
+      width: 500px;
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 15px;
+      cursor: pointer;
+    }
+    .profile-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+    .name-user {
+      display: flex;
+      flex-direction: column;
+    }
+    .name-user strong {
+      color: #3d3d3d;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .name-user span {
+      color: #979797;
+      font-size: 0.8rem;
+    }
+    .reviews {
+      color: #f9d71c;
+    }
+    .box-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .client-comment p {
+      font-size: 0.9rem;
+      color: #4b4b4b;
+    }
+    .testimonial-box:hover {
+      transform: translateY(-10px);
+      transition: all ease 0.3s;
+    }
+
+    @media (max-width: 1060px) {
+      .testimonial-box {
+        width: 45%;
+        padding: 10px;
+      }
+    }
+    @media (max-width: 790px) {
+      .testimonial-box {
+        width: 100%;
+      }
+      .testimonial-heading h1 {
+        font-size: 1.4rem;
+      }
+    }
+    @media (max-width: 340px) {
+      .box-top {
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+      .reviews {
+        margin-top: 10px;
+      }
+    }
+    ::selection {
+      color: #ffffff;
+      background-color: #252525;
+    }
+  </style>
+  <body>
+    <div id="alert"></div>
+    <div class="container-fluid bg-dark none-for-res">
+      <div class="row py-2 px-lg-5">
+        <div class="col-lg-7 text-center">
+          <div>
+            <ul class="nav" style="display: flex">
+              <a href="index.html" class="text-white"
+                ><li class="text-white px-2" href="">
+                  <i class="nav-link">home</i>
+                </li>
+              </a>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">About Us</i>
+              </li>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">Contact</i>
+              </li>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">Contact</i>
+              </li>
+              <li class="text-white pl-2" href="">
+                <i class="nav-link">Gallery</i>
+              </li>
+              <li class="text-white pl-2" href="">
+                <i class="nav-link">Successful Story</i>
+              </li>
+            </ul>
+
+            <!-- <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                            <small class="px-3">|</small>
+                            <small><i class="fa fa-envelope mr-2"></i>info@example.com</small> -->
+          </div>
+        </div>
+        <div class="col-lg-5 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            <form class="mr-3">
+              <input type="search" placeholder="Search..." />
+              <button type="submit">Search</button>
+            </form>
+            <div id="userLogged">
+              <a class="nav-item mr-3">
+                <button
+                  id="signOutUser"
+                  class="btn bg-danger text-white"
+                  style="border-radius: 25px"
+                >
+                  SignOut
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="" style="background-color: #fbbc05">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="text-white text-2xl py-4">
+              Review
+              <span class="text-white float-right text-lg"
+                ><a href="index.html">Home</a> > Review
+              </span>
+            </h2>
+            <!-- <h2 class="text-white text-2xl pt-5 float-right"> </h2> -->
+          </div>
+          <!-- <div class="col-lg-6">
+             
+         </div> -->
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button
+        class="navbar-toggler navbar-toggler-right"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarMobile"
+        aria-controls="navbarMobile"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Mobile -->
+      <div class="collapse" id="navbarMobile">
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section>
+      <div
+        class="container-fluid p-3"
+        style="
+          background-color: #000000;
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.7)
+            ),
+            url(assets/img/bg-cont.jpg);
+          background-position: center;
+          background-size: cover;
+          color: #ffffff;
+          padding: 1em;
+          text-align: center;
+          height: 500px;
+        "
+      >
+        <img class="object-cover w-1/12" src="assets/img/Logo.png" alt="" />
+        <div class="container" style="text-align: -webkit-center">
+          <h1 class="text-4xl text-white pt-40">REVIEWS<br /></h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <!--heading--->
+      <div class="testimonial-heading">
+        <span>Comments</span>
+        <h4>Clients Says</h4>
+      </div>
+      <!--testimonials-box-container------>
+      <div class="testimonial-box-container" id="clientReviews">
+        <!--BOX-1-------------->
+      </div>
+
+      <div
+        class="container d-none"
+        id="client"
+        style="text-align: -webkit-center"
+      >
+        <h3 class="text-2xl text-black py-5 font-bold">
+          ADD YOUR REVIEW<br />
+        </h3>
+        <div id="editor"></div>
+        <button
+          class="bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full my-2"
+          id="sendReview"
+        >
+          Send My Review
+        </button>
+      </div>
+    </section>
+
+    <section class="pt-10">
+      <footer class="main-footer pt-5">
+        <div class="container">
+          <div class="footer-content">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                <div class="logo-widget footer-widget">
+                  <figure class="logo-box">
+                    <a href="#"><img src="assets/img/Logo.png" alt="" /></a>
+                  </figure>
+                  <div class="search-input">
+                    <a href="" target="_blank" hidden></a>
+                    <input type="text" placeholder="Email Address" />
+                    <div class="autocom-box">
+                      <!-- here list are inserted from javascript -->
+                    </div>
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column"
+              >
+                <div class="service-widget footer-widget">
+                  <div class="footer-title">Destination</div>
+                  <div class="row">
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-11.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-12.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-13.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-14.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-15.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-16.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+                <div class="contact-widget footer-widget">
+                  <div class="footer-title">Contacts Us</div>
+                  <ul class="list text-white">
+                    <li>
+                      <i class="fas fa-location-dot text-white text-lg"></i>
+                      <a href="#"> Street ,12 DHA Karachi</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-envelope text-white text-lg"></i>
+                      <a href="#"> Travelojs@gmail.com</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-mobile text-white text-lg"></i>
+                      <a href="#"> 978 454 12 56</a>
+                    </li>
+
+                    <!-- <li><a href="#">Animal Saves</a></li>
+                              <li><a href="#">Help Orphan</a></li> -->
+                  </ul>
+                  <p class="footer-title text-white mt-5">
+                    Policy <br />
+                    Terms & Condition
+                  </p>
+                </div>
+                <div
+                  class="social-links text-white text-center text-md-center pt-3 pt-md-0 text-2xl"
+                >
+                  <a href="#" class="twitter"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                  <a href="#" class="facebook"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
+                  <a href="#" class="instagram"
+                    ><i class="fa-brands fa-twitter"></i
+                  ></a>
+                  <a href="#" class="google-plus"
+                    ><i class="fa-brands fa-whatsapp"></i
+                  ></a>
+                  <!-- <a href="#" class="linkedin"><i class="fas fa-linkedin"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="col-lg-12 col-md-6 col-sm-12 column">
+            <div class="credits text-center text-white">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+              Designed by
+              <a href="https://deskworksol.com/">Desk Work Solution</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- main-footer end -->
+    </section>
+
+    <!-- <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script> -->
+    <!-- <script src="https://mosafir.pk/assets/MonthPicker/MonthPicker.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js" type="text/javascript"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script> -->
+    <!-- <script src="https://mosafir.pk/assets/MonthPicker/MonthPicker.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js" type="text/javascript"></script> -->
+    <script
+      src="https://kit.fontawesome.com/6f7625b96d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <!-- <script
+      charset="utf-8"
+      src="//cdn.embedly.com/widgets/platform.js"
+    ></script> -->
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/embedly-jquery/3.1.2/jquery.embedly.min.js"
+      integrity="sha512-ovl5c9UiyJl053iJQO8nN+M0QjnSODsSqfLAHvdW7haRFJq9bZSaZCHh1Uenoq8FE1vrFZ/P85MG2AGCmxNSDw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+
+    <script type="module" src="./firebase/database/review.js"></script>
+
+    <!-- <script>
+      
+      document.querySelectorAll("oembed[url]").forEach((element) => {
+        console.log("log");
+        // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement("a");
+
+        anchor.setAttribute("href", element.getAttribute("url"));
+        anchor.className = "embedly-card";
+
+        element.appendChild(anchor);
+      });
+    </script> -->
+    <script>
+      $("#alert").on("click", ".closebtn", function () {
+        $(".alert").remove();
+      });
+    </script>
+  </body>
+</html>

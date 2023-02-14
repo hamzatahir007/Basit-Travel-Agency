@@ -1,0 +1,49 @@
+#alert {
+  display: flex;
+  position: fixed;
+  top: 80%;
+  z-index: 2;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  left: 83%;
+  width: 14%;
+}
+
+.alert {
+  color: white;
+  width: max-content;
+  height: max-content;
+}
+
+.danger {
+  background-color: #f44336;
+}
+
+.success {
+  background-color: #3baf55;
+}
+
+.info {
+  background-color: #337ab7;
+}
+
+.warning {
+  background-color: orange;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}

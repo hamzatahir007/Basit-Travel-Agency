@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.scss">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"> -->
+    <link href="assets/css/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<!-- <style>
+  
+
+h2.heading {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: left;
+  color: #506982;
+  border-bottom: 1px solid #506982;
+  padding-bottom: 3px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  text-align: left;
+  position: relative;
+}
+
+.controls input[type=text],
+.controls input[type=email],
+.controls input[type=number],
+.controls input[type=date],
+.controls input[type=tel],
+.controls textarea,
+.controls button,
+.controls select {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #c6c6c6;
+  width: 100%;
+  margin-bottom: 18px;
+  color: #888;
+  font-family: "Lato", "sans-serif";
+  font-size: 16px;
+  font-weight: 300;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.controls input[type=text]:focus, .controls input[type=text]:hover,
+.controls input[type=email]:focus,
+.controls input[type=email]:hover,
+.controls input[type=number]:focus,
+.controls input[type=number]:hover,
+.controls input[type=date]:focus,
+.controls input[type=date]:hover,
+.controls input[type=tel]:focus,
+.controls input[type=tel]:hover,
+.controls textarea:focus,
+.controls textarea:hover,
+.controls button:focus,
+.controls button:hover,
+.controls select:focus,
+.controls select:hover {
+  outline: none;
+  border-color: #9FB1C1;
+}
+
+.controls input[type=text]:focus + label, .controls input[type=text]:hover + label,
+.controls input[type=email]:focus + label,
+.controls input[type=email]:hover + label,
+.controls input[type=number]:focus + label,
+.controls input[type=number]:hover + label,
+.controls input[type=date]:focus + label,
+.controls input[type=date]:hover + label,
+.controls input[type=tel]:focus + label,
+.controls input[type=tel]:hover + label,
+.controls textarea:focus + label,
+.controls textarea:hover + label,
+.controls button:focus + label,
+.controls button:hover + label,
+.controls select:focus + label,
+.controls select:hover + label {
+  color: #bdcc00;
+  cursor: text;
+}
+
+.controls .fa-sort {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  color: #999;
+}
+
+.controls select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.controls label {
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  width: 60%;
+  color: #999;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 10px;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0);
+  -moz-transition: color 0.3s, top 0.3s, background-color 0.8s;
+  -o-transition: color 0.3s, top 0.3s, background-color 0.8s;
+  -webkit-transition: color 0.3s, top 0.3s, background-color 0.8s;
+  transition: color 0.3s, top 0.3s, background-color 0.8s;
+  background-color: white;
+}
+
+.controls label.active {
+  top: -11px;
+  color: #555;
+  background-color: white;
+  width: auto;
+}
+
+.controls textarea {
+  resize: none;
+  height: 200px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #1b3d4d;
+  border: none;
+  color: #fff;
+  padding: 12px 0;
+  float: right;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #224c60;
+}
+
+.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.grid {
+  background: white;
+}
+
+.grid:after {
+  /* Or @extend clearfix */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.grid [class*=col-]:last-of-type {
+  padding-right: 0;
+}
+
+.col-2-3 {
+  width: 66.66%;
+}
+
+.col-1-3 {
+  width: 33.33%;
+}
+
+.col-1-2 {
+  width: 50%;
+}
+
+.col-1-4 {
+  width: 25%;
+}
+
+@media (max-width: 760px) {
+  .col-1-4-sm, .col-1-3, .col-2-3 {
+    width: 100%;
+  }
+
+}
+.col-1-8 {
+  width: 12.5%;
+}
+</style> -->
+<body>
+
+
+  <div class="container-fluid bg-dark none-for-res">
+    <div class="row py-2 px-lg-5">
+        <div class="col-lg-7 text-center">
+                        <div>
+                            <ul class="nav" style="display: flex;">
+                                <a href="index.html" class="text-white"><li class="text-white px-2" href="">
+                                    <i class="nav-link">home</i>
+                                 </li>
+                                </a>
+                                 <li class="text-white px-2" href="">
+                                     <i class="nav-link">About Us</i>
+                                 </li>
+                                 <li class="text-white px-2" href="">
+                                     <i class="nav-link">Contact</i>
+                                 </li>
+                                 <li class="text-white px-2" href="">
+                                     <i class="nav-link">Contact</i>
+                                 </li>
+                                 <li class="text-white pl-2" href="">
+                                     <i class="nav-link">Gallery</i>
+                                 </li>
+                                 <li class="text-white pl-2" href="">
+                                     <i class="nav-link">Successful Story</i>
+                                 </li>
+                            </ul>
+                         
+                            <!-- <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                            <small class="px-3">|</small>
+                            <small><i class="fa fa-envelope mr-2"></i>info@example.com</small> -->
+                        </div>
+                    </div>
+        <div class="col-lg-5 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <form class="mr-3">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit">Search</button>
+                  </form>
+                <a class="nav-item mr-3">
+                  <button class="btn bg-danger text-white" style="border-radius: 25px;">
+                    Login
+                  </button>
+                </a>
+                <a>
+                    <button class="btn bg-danger text-white" style="border-radius: 25px;">
+                      Register
+                    </button>
+                  </a>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="" style="background-color: #FBBC05;">
+        <div class="container">
+        <div class="row">
+         <div class="col-lg-12">
+             <h2 class="text-white text-2xl py-4">Lahore to karachi Flights <span class="text-white float-right text-lg"><a href="index.html">Home</a> > Flights > Search </span> </h2>
+             <!-- <h2 class="text-white text-2xl pt-5 float-right"> </h2> -->
+         </div>
+         <!-- <div class="col-lg-6">
+             
+         </div> -->
+        </div>
+        </div>
+     </nav>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		
+	
+		<!-- Mobile -->
+		<div class="collapse" id="navbarMobile">
+			<ul class="nav navbar-nav">
+			  <li class="nav-item">
+				  <a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			  <li class="nav-item">
+					<a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			  <li class="nav-item">
+					<a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="#">Mobile Link</a>
+			  </li>
+			</ul>
+		</div>
+	</nav>
+
+    <section class="py-3">
+     <div class="container">
+      <input type="radio" id="tab1" name="tab" checked>
+      <label for="tab1">Round Trip</label>
+      <input type="radio" id="tab2" name="tab">
+      <label for="tab2">One Way</label>
+      <input type="radio" id="tab3" name="tab">
+      <label for="tab3">My Date Are Flexible</label>
+      <article>
+        
+<form action="">
+  <!--  General -->
+  <div class="row">
+    <div class="form-group reson col-lg-12">
+  
+      <div class=" col-lg-2">
+        <div class="form-froup">
+          <!-- <label for="name">Name</label> -->
+        <input class="form-control" style="background: none;" id="uname1" name="uname1" required="" type="text" placeholder="LHE">
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="form-froup">
+          <!-- <label for="name">Name</label> -->
+          <input class="form-control" style="background: none;" id="uname2" name="uname2" required="" type="text" placeholder="KHI">
+        </div>
+      </div>       
+      <div class="form-group col-lg-2">
+        <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+        <input type="date" id="depart" class="floatLabel form-control" name="depart" placeholder="31-10-2022" value="<?php echo date('Y-m-d'); ?>">
+      </div> 
+     
+      <div class="form-group col-lg-2">
+        <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+        <input type="date" id="depart1" class="floatLabel form-control" name="depart" placeholder="10-11-2022" value="<?php echo date('Y-m-d'); ?>">
+      </div> 
+      <div class="form-group col-lg-2">
+        <select class="custom-select" id="gender2">
+          <option selected="">Choose...</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>   
+      </div>
+      <div class="form-group col-lg-2">
+        <button>
+          Search
+          </button>
+      </div>
+         </div>
+  </div>
+      
+  
+  
+</form>
+      </article>
+      <article>
+        <form action="">
+          <!--  General -->
+          <div class="row">
+            <div class="form-group reson col-lg-12">
+          
+              <div class=" col-lg-2">
+                <div class="form-froup">
+                  <!-- <label for="name">Name</label> -->
+                <input class="form-control" style="background: none;" id="uname1" name="uname1" required="" type="text" placeholder="LHE">
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-froup">
+                  <!-- <label for="name">Name</label> -->
+                  <input class="form-control" style="background: none;" id="uname2" name="uname2" required="" type="text" placeholder="KHI">
+                </div>
+              </div>       
+              <div class="form-group col-lg-2">
+                <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                <input type="date" id="depart" class="floatLabel form-control" name="depart" placeholder="31-10-2022" value="<?php echo date('Y-m-d'); ?>">
+              </div> 
+             
+              <div class="form-group col-lg-2">
+                <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                <input type="date" id="depart1" class="floatLabel form-control" name="depart" placeholder="10-11-2022" value="<?php echo date('Y-m-d'); ?>">
+              </div> 
+              <div class="form-group col-lg-2">
+                <select class="custom-select" id="gender2">
+                  <option selected="">Choose...</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>   
+              </div>
+              <div class="form-group col-lg-2">
+                <button>
+                  Search
+                  </button>
+              </div>
+                 </div>
+          </div>
+              
+          
+          
+        </form>
+      </article>
+      <article>
+        <form action="">
+          <!--  General -->
+          <div class="row">
+            <div class="form-group reson col-lg-12">
+          
+              <div class=" col-lg-2">
+                <div class="form-froup">
+                  <!-- <label for="name">Name</label> -->
+                <input class="form-control" style="background: none;" id="uname1" name="uname1" required="" type="text" placeholder="LHE">
+                </div>
+              </div>
+              <div class="col-lg-2">
+                <div class="form-froup">
+                  <!-- <label for="name">Name</label> -->
+                  <input class="form-control" style="background: none;" id="uname2" name="uname2" required="" type="text" placeholder="KHI">
+                </div>
+              </div>       
+              <div class="form-group col-lg-2">
+                <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                <input type="date" id="depart" class="floatLabel form-control" name="depart" placeholder="31-10-2022" value="<?php echo date('Y-m-d'); ?>">
+              </div> 
+             
+              <div class="form-group col-lg-2">
+                <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                <input type="date" id="depart1" class="floatLabel form-control" name="depart" placeholder="10-11-2022" value="<?php echo date('Y-m-d'); ?>">
+              </div> 
+              <div class="form-group col-lg-2">
+                <select class="custom-select" id="gender2">
+                  <option selected="">Choose...</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>   
+              </div>
+              <div class="form-group col-lg-2">
+                <button>
+                  Search
+                  </button>
+              </div>
+                 </div>
+          </div>
+              
+          
+          
+        </form>
+      </article>
+     </div>
+</section>
+
+<section>
+  <div class="container-fluid">
+    <div class="container">
+     <div class="row">
+      <div class="col-md-3 sorting pb-5">
+        <div class="filter">
+          <form action="" id="filterForm" method="post">
+            <h4>Sort &amp; filter <a href="javascript:void(0);" onclick="resetFilterForm()">Reset</a></h4>
+            <div class="filter_row">
+  
+              <h5>Sort By</h5>
+  
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  
+                <select name="sortby" class="form-control" onchange="sortFlights(this.value);" style="display: block !important;">
+                  <option disabled="" selected="">Sort By</option>
+                  <option value="prcSort-a" selected="">Price (Low to High)</option>
+                  <option value="prcSort-d">Price (High to Low)</option>
+                  <option value="FlightTime-a">Flight Duration Ascending</option>
+                  <option value="FlightTime-d">Flight Duration Descending</option>
+                </select>
+  
+              </div>
+              <!--END OF BTN GROUP-->
+  
+            </div>
+            <!--END OF FILTER ROW-->
+            <div class="filter_row">
+              <h5>Stops</h5>
+              <div class="btn-group btn-group-toggle filterStops" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                    <input type="radio" name="filterStops" class="" id="filterStops0" value="0"> 0                </label>
+                                <label class="btn btn-secondary ">
+                    <input type="radio" name="filterStops" class="" id="filterStops1" value="1"> 1                </label>
+                                <label class="btn btn-secondary ">
+                    <input type="radio" name="filterStops" class="" id="filterStops2" value="2"> 2                </label>
+                                <label class="btn btn-secondary ">
+                    <input type="radio" name="filterStops" class="" id="filterStops3" value="3"> 3+                </label>
+                            </div>
+              <!--END OF BTN GROUP-->
+            </div>
+            <!--END OF FILTER ROW-->
+            <div class="filter_row">
+              <h5>airline</h5>
+              <div id="carrier"><div class="opt opt_carriers EK" ><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox EK" value="EK" id="EK" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="EK">Emirates</label>  <span class="filtersPrc d-none">128733</span></div><!--END OF COSTUM CONTROL--><h5>128,733</h5></div><div class="opt opt_carriers SV" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox SV" value="SV" id="SV" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="SV">Saudi Arabian</label>  <span class="filtersPrc d-none">135092</span></div><!--END OF COSTUM CONTROL--><h5>135,092</h5></div><div class="opt opt_carriers WY" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox WY" value="WY" id="WY" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="WY">Oman Air</label>  <span class="filtersPrc d-none">145937</span></div><!--END OF COSTUM CONTROL--><h5>145,937</h5></div><div class="opt opt_carriers GF" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox GF" value="GF" id="GF" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="GF">Gulf Air Bahrain</label>  <span class="filtersPrc d-none">152903</span></div><!--END OF COSTUM CONTROL--><h5>152,903</h5></div><div class="opt opt_carriers KU" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox KU" value="KU" id="KU" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="KU">Kuwait Airways</label>  <span class="filtersPrc d-none">164415</span></div><!--END OF COSTUM CONTROL--><h5>164,415</h5></div><div class="opt opt_carriers EY" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox EY" value="EY" id="EY" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="EY">Etihad Airways</label>  <span class="filtersPrc d-none">207513</span></div><!--END OF COSTUM CONTROL--><h5>207,513</h5></div><div class="opt opt_carriers QR" style=""><div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input carrier_checkbox QR" value="QR" id="QR" onclick="carrier_clicked(this);">  <label class="custom-control-label" for="QR">Qatar Airways</label>  <span class="filtersPrc d-none">303007</span></div><!--END OF COSTUM CONTROL--><h5>303,007</h5></div></div>
+            </div>
+            <!--END OF FILTER ROW-->
+            <div class="filter_row">
+              <h5>Class</h5>
+              <div id="cabinclass"><div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="radio" class="form-check-input" name="bsradio" id="radio1"
+                  checked="">
+                  <label class="custom-control-label" for="Economy">Economy</label>
+                </div><!--END OF COSTUM CONTROL--><!-- <h5>Rs 31,049</h5> -->
+              </div>
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="radio" class="form-check-input" name="bsradio" id="radio2">
+                  <label class="custom-control-label" for="Business">Business</label>
+                </div><!--END OF COSTUM CONTROL--><!-- <h5>Rs 31,049</h5> -->
+              </div>
+            </div>
+            </div>
+            <!--END OF FILTER ROW-->
+            <div class="filter_row" id="sec-hide3">
+              <h5>fund</h5>
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="radio" name="radios" class="form-check-input" id="exampleRadio1">
+                  <label class="custom-control-label" for="refundable"> Refundable</label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+                <h5 id="refundable_count"></h5>
+              </div>
+              <!--END OF OPT -->
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="radio" name="radios" class="form-check-input" id="exampleRadio2">
+                  <label class="custom-control-label" for="nonRefundable"> Non Refundable</label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+                <h5 id="nonrefundable_count"></h5>
+              </div>
+              <!--END OF OPT -->
+            </div>
+            <!--END OF FILTER ROW-->
+  
+            <div class="filter_row">
+              <h5>Departure Time</h5>
+  
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input dep_time_filter" onclick="filterbyTime(this)" id="depart1" value="00-06">
+                  <label class="custom-control-label" for="depart1">Before 6AM</label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+              </div>
+              <!--END OF OPT-->
+  
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input dep_time_filter" onclick="filterbyTime(this)" id="depart2" value="06-12">
+                  <label class="custom-control-label" for="depart2">6AM - 12PM </label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+              </div>
+              <!--END OF OPT-->
+  
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input dep_time_filter" onclick="filterbyTime(this)" id="depart3" value="12-18">
+                  <label class="custom-control-label" for="depart3">12PM - 6PM</label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+              </div>
+              <!--END OF OPT-->
+  
+  
+              <div class="opt">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input dep_time_filter" onclick="filterbyTime(this)" id="depart4" value="18-24">
+                  <label class="custom-control-label" for="depart4">After 6PM</label>
+                </div>
+                <!--END OF COSTUM CONTROL-->
+              </div>
+              <!--END OF OPT-->
+  
+            </div>
+            <!--END OF FILTER ROW-->
+          </form>
+        </div>
+        <!--END OF FILTER-->
+      </div>
+      <div class="col-lg-9 col-md-12 order-2">
+        <div class="listing_div">        <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+          <!--END OF FLIGHT LIST-->
+  <div class="flight_list flight_detail">
+    <div class="row justify-content-between">
+                
+      <div class="reson col-lg-5 col-md-4 col-4 departure_section_new SV Economy">
+        <div class="reson" style=" display: flex;">
+          <div class="airline">
+            <img src="https://mosafir.pk/assets/AirlineLogos/SV.png" alt="Saudi Arabian" data-toggle="tooltip" data-placement="top" class="img-fluid">
+            <p>SV - 737</p>
+          </div>
+<div class="flight_desc">
+<div class="legend">
+<label>Departure</label>
+<p>LHE – 02:00 AM <span>November 18 , Fri</span></p>
+</div><!--END OF LEGEND-->
+</div><!--END OF FLIGHT DESC-->
+        </div>
+</div><!--END OF COL MD 3-->
+<div class="col-lg-3 col-md-4 col-4 Aligned flex item">
+<hr style="
+width: 100%;
+border: 2px solid;
+background: black;
+float: right;
+">
+<!--END OF AIRLINE-->
+</div><!--END OF COL MD 3-->
+<div class="col-lg-3 col-md-4 col-4 arrival_section_new">
+<div class="flight_desc">
+<div class="legend">
+<label>Arrival</label>
+<p>JED – 05:45 AM<span>November 18 , Fri</span></p>
+</div><!--END OF LEGEND-->
+</div><!--END OF FLIGHT DESC-->
+</div><!--END OF COL MD 3-->
+<div class="col-12 py-3">
+<div class="airline">
+<h5><i class="fa fa-clock" aria-hidden="true"></i> 5 h 45 mins <strong class="text-danger">|</strong> Direct <strong class="text-danger">| Economy</strong></h5>
+</div>
+</div>
+<div class="link"></div>
+<div class="FlightTime d-none">345</div>
+<div class="reson col-lg-5 col-md-4 col-4 departure_section_new SV Economy">
+  <div class="reson" style="display: flex;">
+    <div class="airline">
+      <img src="https://mosafir.pk/assets/AirlineLogos/SV.png" alt="Saudi Arabian" data-toggle="tooltip" data-placement="top" class="img-fluid">
+      <p>SV - 737</p>
+    </div>
+<div class="flight_desc">
+<div class="legend">
+<label>Departure</label>
+<p>LHE – 02:00 AM <span>November 18 , Fri</span></p>
+</div><!--END OF LEGEND-->
+</div><!--END OF FLIGHT DESC-->
+  </div>
+</div><!--END OF COL MD 3-->
+<div class="col-lg-3 col-md-4 col-4 Aligned flex item">
+<hr style="
+width: 100%;
+border: 2px solid;
+background: black;
+float: right;
+">
+<!--END OF AIRLINE-->
+</div><!--END OF COL MD 3-->
+<div class="col-lg-3 col-md-4 col-4 arrival_section_new">
+<div class="flight_desc">
+<div class="legend">
+<label>Arrival</label>
+<p>JED – 05:45 AM<span>November 18 , Fri</span></p>
+</div><!--END OF LEGEND-->
+</div><!--END OF FLIGHT DESC-->
+</div><!--END OF COL MD 3-->
+<div class="col-12 py-3">
+<div class="airline">
+<h5><i class="fa fa-clock" aria-hidden="true"></i> 10 h 40 mins <strong class="text-danger">|</strong> 1 Stop(s) <strong class="text-danger">| Economy</strong></h5>
+</div>
+</div>
+</div>
+     
+      <div class="bottom_sec">
+        <ul class="list-unstyled">
+          <!-- <li><a href="#">Fare Rules</a></li> -->
+                  <li>Refundable</li>
+          <li><a href="javascript:void(0);" onclick="requestFareRules('9WJx9RAynDKASD+fNFAAAA==', 'gws-eJxNTkEKg0AMfIzMfRIpelypu0hbFlut4MX/P6NJbKGB7Ex2kklSSkpVEenSfzQ4mmVDfV+BCrW85REqeiHEqh2kCp6vdb7j69Dbfw3tRImuooUGKDQMyQN7vI8ph5HbkhT4Xji1CfxInozWYVzVy7aNzlNiBzvzA/ruKoY=', '2');">Fare Rules</a>
+            <input type="hidden" name="fareInfoKey" class="fareInfoKey_0_2" value="9WJx9RAynDKASD+fNFAAAA==" form="book_form_0_2">
+            <input type="hidden" name="fareRuleKey" class="fareRuleKey_0_2" value="gws-eJxNTkEKg0AMfIzMfRIpelypu0hbFlut4MX/P6NJbKGB7Ex2kklSSkpVEenSfzQ4mmVDfV+BCrW85REqeiHEqh2kCp6vdb7j69Dbfw3tRImuooUGKDQMyQN7vI8ph5HbkhT4Xji1CfxInozWYVzVy7aNzlNiBzvzA/ruKoY=" form="book_form_0_2">
+            <input type="hidden" name="fare_rules_retrieved" class="fare_rules_retrieved_0_2" form="book_form_0_2">
+          </li>
+          <li><a href="#" data-toggle="modal" data-target="#further_0_2" aria-expanded="false" aria-controls="further">Flight Details</a></li>
+        </ul>
+                <div class="fares_flight py-3">
+            
+              <!-- discounted price is temporary -->
+  
+                                <h2>PKR 135,092 </h2>
+                    <input type="button" class="btn btnBookNow" onclick="checkUserLogged('0_2')" value="Book Now">
+            </div>
+                </div><!--END OF BOTTOM SEC-->
+              <div class="modal fade further_detail" role="dialog" id="further_0_2">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Flight Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="top: 226px; right: 10px;">
+                  <i class="fa fa-times-circle"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12">
+                                        <div class="flight_info_colored pt-2 pb-2">
+                        <div class="info justify-content-center">
+                          <h2>Allama Iqbal International Airport <i class="fa fa-plane"></i> King Abdul Aziz International Airport</h2>
+                        </div><!--END OF INFO--->
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-md-8">
+                          <div class="airline_info">
+                            <span><img src="https://mosafir.pk/assets/AirlineLogos/SV.png" alt=""></span>
+                            <p>Saudi Arabian SV - 737 <small>Economy</small> <strong>Aircraft: 773</strong></p>
+                          </div><!--END OF AIRLINE INFO-->
+                        </div><!--END OF COL MD 8-->
+                        <div class="col-md-4">
+                          <ul class="list-unstyled offers">
+                            <li class="active"><i class="fa fa-utensils"></i></li>
+                            <li><i class="fa fa-plane"></i></li>
+                            <li><i class="fa fa-file-video"></i></li>
+                            <li class="active"><i class="fa fa-wifi"></i></li>
+                            <li class="active text-dark"><i class="fa fa-briefcase"></i> 2 Pcs                        </li>
+                        </ul>
+                      </div><!--END OF COL MD 4-->
+                    </div><!--END OF ROW-->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="source_destination">
+                          <div class="source_name">
+                            <h4>Nov 18 , Fri</h4>
+                            <h4>02:00 AM</h4>
+                            <p>Allama Iqbal International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                          <div class="layover2">
+                            <div class="stops">
+                              <i class="fa fa-plane"></i>
+                              <span class="dot"></span>
+                              <span class="name">&nbsp;</span>
+                              <span class="duration">05h 45m</span>
+                            </div><!--END OF STOPS-->
+                          </div><!--END OF LAYOVER-->
+                          <div class="source_name">
+                            <h4>Nov 18 , Fri</h4>
+                            <h4>05:45 AM</h4>
+                            <p>King Abdul Aziz International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                        </div><!--END OF SOURCE DESTI--->
+                                            </div><!--END OF COL MD 12-->
+                    </div><!--END OF ROW-->
+                                      <div class="flight_info_colored pt-2 pb-2">
+                        <div class="info justify-content-center">
+                          <h2>King Abdul Aziz International Airport <i class="fa fa-plane"></i> King Khalid International Airport</h2>
+                        </div><!--END OF INFO--->
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-md-8">
+                          <div class="airline_info">
+                            <span><img src="https://mosafir.pk/assets/AirlineLogos/SV.png" alt=""></span>
+                            <p>Saudi Arabian SV - 1018 <small>Economy</small> <strong>Aircraft: 321</strong></p>
+                          </div><!--END OF AIRLINE INFO-->
+                        </div><!--END OF COL MD 8-->
+                        <div class="col-md-4">
+                          <ul class="list-unstyled offers">
+                            <li class="active"><i class="fa fa-utensils"></i></li>
+                            <li><i class="fa fa-plane"></i></li>
+                            <li><i class="fa fa-file-video"></i></li>
+                            <li class="active"><i class="fa fa-wifi"></i></li>
+                            <li class="active text-dark"><i class="fa fa-briefcase"></i> 2 Pcs                        </li>
+                        </ul>
+                      </div><!--END OF COL MD 4-->
+                    </div><!--END OF ROW-->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="source_destination">
+                          <div class="source_name">
+                            <h4>Nov 20 , Sun</h4>
+                            <h4>06:00 AM</h4>
+                            <p>King Abdul Aziz International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                          <div class="layover2">
+                            <div class="stops">
+                              <i class="fa fa-plane"></i>
+                              <span class="dot"></span>
+                              <span class="name">&nbsp;</span>
+                              <span class="duration">01h 45m</span>
+                            </div><!--END OF STOPS-->
+                          </div><!--END OF LAYOVER-->
+                          <div class="source_name">
+                            <h4>Nov 20 , Sun</h4>
+                            <h4>07:45 AM</h4>
+                            <p>King Khalid International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                        </div><!--END OF SOURCE DESTI--->
+                                                <div class="col-md-12 bg-dark text-white mt-2">
+                            <div class="d-flex justify-content-center pt-1 pb-1">
+                              <p class="mb-0"><span><i class="fa fa-clock"></i>&nbsp;04h 45m Stop Over&nbsp;</span></p>
+                            </div><!--END OF D FLEX-->
+                          </div><!--END OF COL MD 12-->
+                                            </div><!--END OF COL MD 12-->
+                    </div><!--END OF ROW-->
+                                      <div class="flight_info_colored pt-2 pb-2">
+                        <div class="info justify-content-center">
+                          <h2>King Khalid International Airport <i class="fa fa-plane"></i> Allama Iqbal International Airport</h2>
+                        </div><!--END OF INFO--->
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-md-8">
+                          <div class="airline_info">
+                            <span><img src="https://mosafir.pk/assets/AirlineLogos/SV.png" alt=""></span>
+                            <p>Saudi Arabian SV - 736 <small>Economy</small> <strong>Aircraft: 777</strong></p>
+                          </div><!--END OF AIRLINE INFO-->
+                        </div><!--END OF COL MD 8-->
+                        <div class="col-md-4">
+                          <ul class="list-unstyled offers">
+                            <li class="active"><i class="fa fa-utensils"></i></li>
+                            <li><i class="fa fa-plane"></i></li>
+                            <li><i class="fa fa-file-video"></i></li>
+                            <li class="active"><i class="fa fa-wifi"></i></li>
+                            <li class="active text-dark"><i class="fa fa-briefcase"></i> 2 Pcs                        </li>
+                        </ul>
+                      </div><!--END OF COL MD 4-->
+                    </div><!--END OF ROW-->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="source_destination">
+                          <div class="source_name">
+                            <h4>Nov 20 , Sun</h4>
+                            <h4>12:30 PM</h4>
+                            <p>King Khalid International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                          <div class="layover2">
+                            <div class="stops">
+                              <i class="fa fa-plane"></i>
+                              <span class="dot"></span>
+                              <span class="name">&nbsp;</span>
+                              <span class="duration">04h 10m</span>
+                            </div><!--END OF STOPS-->
+                          </div><!--END OF LAYOVER-->
+                          <div class="source_name">
+                            <h4>Nov 20 , Sun</h4>
+                            <h4>06:40 PM</h4>
+                            <p>Allama Iqbal International Airport</p>
+                          </div><!--END OF COURCE NAME-->
+                        </div><!--END OF SOURCE DESTI--->
+                                            </div><!--END OF COL MD 12-->
+                    </div><!--END OF ROW-->
+                                </div><!--END OF COL MD 12-->
+                <div class="col-md-12 mt-2">
+                  <div class="fare-tabs">
+                    <ul class="nav nav-pills" id="summary" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="fare-summary-tab" data-toggle="pill" href="#fare-summary_0_2" role="tab" aria-controls="fare-summary" aria-selected="true">Fare Summary</a>
+                      </li>
+  
+  </ul>
+  <div class="tab-content" id="booking-summary">
+    <div class="tab-pane fade show active" id="fare-summary_0_2" role="tabpanel" aria-labelledby="fare-summary-tab">
+      <table class="table">
+        <tbody><tr>
+          <th>Fare Summary </th>
+          <th>Base Fare</th>
+          <th>Fees &amp; Taxes</th>
+        </tr>
+        <tr>
+          <td>ADT x 1</td>
+          <td>PKR 114,450</td>
+          <td>PKR 19,496</td>
+          </tr>      <tr>
+          <td><h3>Total</h3></td>
+          <td colspan="2" align="right"><h3>PKR 135,092</h3></td>
+        </tr>
+        <tr>
+          <td colspan="3"><p>*Total fare displayed above has been rounded off and may thus show a slight difference.</p></td>
+        </tr>
+      </tbody></table>
+    </div><!--END OF tab pane-->
+  
+  </div><!--END OF TAB CONTENT booking summary--->
+  <!-- <button class="btn">Book</button> -->
+  </div><!--END OF FAIR TABS-->
+  </div><!--END OF COL MD 12-->
+  </div><!--END OF ROW-->
+  </div><!-- END OF MODAL-BODY-->
+  </div><!-- END OF MODAL-CONTENT-->
+  </div><!-- END OF MODAL-DIALOG-->
+  </div><!--END OF MODAL-->
+        <div class="FlightTime d-none">355</div>
+  <div class="stop_1 d-none"></div>
+  <input type="hidden" class="priceInput d-none" value="135092">
+  <div class="refundNon_Refundable d-none"></div>
+  <div class="prcSort d-none">135092</div>
+  </div></div>
+        <div class="alert alert-danger noFlightsMsg d-none">No flights matching your search crieteria, please change your search.</div>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <footer class="main-footer pt-5">
+      <div class="container">
+          <div class="footer-content">
+              <div class="row">
+                  <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                      <div class="logo-widget footer-widget">
+                          <figure class="logo-box"><a href="#"><img src="assets/img/Logo.png" alt=""></a></figure>
+                          <div class="search-input">
+                              <a href="" target="_blank" hidden></a>
+                              <input type="text" placeholder="Email Address">
+                              <div class="autocom-box">
+                                <!-- here list are inserted from javascript -->
+                              </div>
+                              <div class="icon"><i class="fas fa-search"></i></div>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+                      <div class="service-widget footer-widget">
+                          <div class="footer-title">Destination</div>
+                          <div class="row">
+                            <div class="flex-for-res">
+            <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-11.png" alt="">
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-12.png" alt="">
+                                  </div>
+                              </div>
+          </div>
+          <div class="flex-for-res">
+                              <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-13.png" alt="">
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-14.png" alt="">
+                                  </div>
+                              </div>
+            </div>
+            <div class="flex-for-res">
+                              <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-15.png" alt="">
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="p-2">
+                                      <img style="object-fit: cover;width: 100%;" src="assets/img/footer-16.png" alt="">
+                                  </div>
+                              </div>
+            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+                      <div class="contact-widget footer-widget">
+                          <div class="footer-title">Contacts Us</div>
+                          <ul class="list text-white">
+                              <li><i class="fas fa-location-dot text-white text-lg"></i> <a href="#"> Street ,12 DHA Karachi</a></li>
+                              <li><i class="fas fa-envelope text-white text-lg"></i> <a href="#"> Travelojs@gmail.com</a></li>
+                              <li><i class="fas fa-mobile text-white text-lg"></i> <a href="#"> 978 454 12 56</a></li>
+
+                              <!-- <li><a href="#">Animal Saves</a></li>
+                              <li><a href="#">Help Orphan</a></li> -->
+                          </ul>
+                          <p class="footer-title text-white mt-5">
+                              Policy <br>
+                              Terms & Condition
+                          </p>
+                      </div>
+                      <div class="social-links text-white text-center text-md-center pt-3 pt-md-0 text-2xl">
+                          
+                          <a href="#" class="twitter"><i class="fa-brands fa-instagram"></i></a>
+                          <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+                          <a href="#" class="instagram"><i class="fa-brands fa-twitter"></i></a>
+                          <a href="#" class="google-plus"><i class="fa-brands fa-whatsapp"></i></a>
+                          <!-- <a href="#" class="linkedin"><i class="fas fa-linkedin"></i></a> -->
+                        </div>
+                  </div>
+                  
+              </div>
+    
+          </div>
+  
+      </div>
+      <div class="footer-bottom">
+  <div class="col-lg-12 col-md-6 col-sm-12 column">
+    <div class="credits text-center text-white">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+      Designed by <a href="https://deskworksol.com/">Desk Work Solution</a>
+      </div>
+  </div>
+      </div>
+  </footer>
+  <!-- main-footer end -->
+
+</section>
+ <!-- <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+ <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+ <!-- <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script> -->
+ <!-- <script src="https://mosafir.pk/assets/MonthPicker/MonthPicker.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js" type="text/javascript"></script> -->
+ <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+ <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+ <!-- <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script> -->
+ <!-- <script src="https://mosafir.pk/assets/MonthPicker/MonthPicker.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js" type="text/javascript"></script> -->
+<script src="https://kit.fontawesome.com/6f7625b96d.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+   <script>
+    $('[name=tab]').each(function(i,d){
+  var p = $(this).prop('checked');
+//   console.log(p);
+  if(p){
+    $('article').eq(i)
+      .addClass('on');
+  }    
+});  
+
+$('[name=tab]').on('change', function(){
+  var p = $(this).prop('checked');
+  
+  // $(type).index(this) == nth-of-type
+  var i = $('[name=tab]').index(this);
+  
+  $('article').removeClass('on');
+  $('article').eq(i).addClass('on');
+});
+   </script>
+</body>
+</html>

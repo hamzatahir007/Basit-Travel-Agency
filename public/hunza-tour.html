@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.scss" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+    />
+
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"> -->
+    <link href="assets/css/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/alert.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    .branding {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+    .branding img {
+      width: 50px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 100%;
+    }
+    .gallery__bg {
+      opacity: 0.5;
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .gallery__bg img {
+      width: 105%;
+      height: 105%;
+      object-fit: cover;
+      object-position: center center;
+      filter: blur(5px);
+      position: absolute;
+      top: -2.5%;
+      left: -2.5%;
+      z-index: 2;
+    }
+    .gallery__bg img.fade-in {
+      z-index: 1;
+    }
+    .gallery__bg img.fade-out {
+      transition: opacity 400ms;
+      opacity: 0;
+    }
+    .gallery__search {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .gallery__search label {
+      background: #333;
+      color: white;
+      padding: 11px 10px 10px;
+    }
+    .gallery__search input {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      padding: 1px 6px 0;
+      font-family: "Poppins", sans-serif;
+      font-size: 16px;
+    }
+    .gallery__search input:focus {
+      outline: none;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+    .gallery__main {
+      position: relative;
+      z-index: 1;
+      margin: 0 75px 0 20px;
+      width: 520px;
+      max-width: calc(100% - 95px);
+    }
+    .gallery__core {
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+    }
+    .gallery__core img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: translateY(0);
+    }
+    .gallery__core img.slide-in {
+      top: 100%;
+    }
+    .gallery__core img.shift-up {
+      transition: transform 400ms;
+      transform: translateY(-100%);
+    }
+    .gallery__track {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      transform: translate(60px, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery__track__item {
+      width: 43px;
+      height: 43px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border-radius: 100%;
+      transition: transform 350ms;
+    }
+    .gallery__track__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .gallery__track__item:hover {
+      transform: scale(1.2);
+    }
+    .gallery__track__item.active {
+      width: 40px;
+      height: 40px;
+      border: 3px solid white;
+    }
+  </style>
+  <body>
+    <div class="container-fluid bg-dark none-for-res">
+      <div class="row py-2 px-lg-5">
+        <div class="col-lg-7 text-center">
+          <div>
+            <ul class="nav" style="display: flex">
+              <a href="index.html" class="text-white"
+                ><li class="text-white px-2" href="">
+                  <i class="nav-link">home</i>
+                </li>
+              </a>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">About Us</i>
+              </li>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">Contact</i>
+              </li>
+              <li class="text-white px-2" href="">
+                <i class="nav-link">Contact</i>
+              </li>
+              <li class="text-white pl-2" href="">
+                <i class="nav-link">Gallery</i>
+              </li>
+              <li class="text-white pl-2" href="">
+                <i class="nav-link">Successful Story</i>
+              </li>
+            </ul>
+
+            <!-- <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                            <small class="px-3">|</small>
+                            <small><i class="fa fa-envelope mr-2"></i>info@example.com</small> -->
+          </div>
+        </div>
+        <div class="col-lg-5 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            <form class="mr-3">
+              <input type="search" placeholder="Search..." />
+              <button type="submit">Search</button>
+            </form>
+            <div id="userLogged"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button
+        class="navbar-toggler navbar-toggler-right"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarMobile"
+        aria-controls="navbarMobile"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Mobile -->
+      <div class="collapse" id="navbarMobile">
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mobile Link</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section>
+      <div class="container mt-2">
+        <div class="col-12 col-lg-12">
+          <div class="product-gallery">
+            <div class="gallery-thumbs">
+              <ul></ul>
+            </div>
+            <div class="gallery-current" id="mainImage">
+              <!-- Startup image: or use 'placeholder' option -->
+              <!-- <img src="assets/img/hunza1.png" /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+    <!--  -->
+    <section>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="text-left font-bold text-4xl py-5" id="packageName"></div>
+          <!-- <h2 class="text-4xl text-black font-bold p-2">Pakistan Tour Packages</h2> -->
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container-fluid p-3" style="background-color: #fbbc05">
+        <div class="container">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                data-toggle="tab"
+                href="#home"
+                role="tab"
+                >Details</a
+              >
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
+                >Details</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#settings" role="tab"
+                >Photos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#Insurance" role="tab"
+                >Insurance</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#policy" role="tab"
+                >Cancellation Policy</a
+              >
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <div
+        class="container p-5 my-5"
+        style="background-color: #f7f7f7; border-radius: 25px"
+      >
+        <!-- Tab panes -->
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="tab-content">
+              <div class="tab-pane active" id="home" role="tabpanel">
+                <h2 class="font-bold text-2xl">Manage Your Airline Booking</h2>
+                <ul class="list-arrow pt-3">
+                  <li class="font-bold">
+                    <span class="text-danger"> > Day 1</span>, Islamabad To
+                    Naran
+                  </li>
+                  <li class="font-bold">
+                    <span class="text-danger"> > Day 2</span>, Hunza to Naran
+                  </li>
+                  <li class="font-bold">
+                    <span class="text-danger"> > Day 3</span>, Naran to
+                    Islamabad
+                  </li>
+                </ul>
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Tour Details</h2>
+                <p class="text-lg">
+                  If you had limited time and less budget and want to explore
+                  Hunza? then the only option is a road trip of 3 days to Hunza.
+                  We are purposing this 3 days Hunza Tour with almost every
+                  famous attraction to visit. 5 days Hunza tour increases travel
+                  duration but save your time and money. In 2021, we are hoping
+                  that this package will be the most selling tour plan of Hunza
+                  Valley.
+                </p>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+                <h2 class="text-black text-2xl">
+                  Departure & Return Location
+                  <span class="text-black float-right text-lg">
+                    Lahore / Islamabad</span
+                  >
+                </h2>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+                <h2 class="text-black text-2xl">
+                  Departure Time
+                  <span class="text-black float-right text-lg">11:30 PM</span>
+                </h2>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Price Includes</h2>
+                <div class="container">
+                  <ul class="list-disc">
+                    <li>Transportation (Car)</li>
+                    <li>Driver Cum Guide</li>
+                    <li>04-nights Hotel accommodation</li>
+                    <li>Breakfast</li>
+                  </ul>
+                </div>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Price Excludes</h2>
+                <div class="container">
+                  <ul class="list-disc">
+                    <li>
+                      Extras at hotels like Food/ Hot/ Soft Drinks/ Mineral
+                      water/ Heating etc.
+                    </li>
+                    <li>
+                      Any Type of Entry Tickets/ Boating /Rafting & Porter
+                      charges for Personal carriage
+                    </li>
+                    <li>Insurance and Liability</li>
+                    <li>
+                      Extra expenses/Returns due to acts of nature or political
+                      reasons etc. Any item not mentioned above
+                    </li>
+                  </ul>
+                </div>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Services</h2>
+                <div class="container">
+                  <ul class="list-disc">
+                    <li>Accommodation</li>
+                    <li>Transportation</li>
+                    <li>Food</li>
+                  </ul>
+                </div>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Recommended Gears</h2>
+                <div class="container">
+                  <ul class="list-disc">
+                    <li>Day Bag</li>
+                    <li>Raincoat</li>
+                    <li>Sunblock</li>
+                    <li>Sunglasses</li>
+                    <li>Warm clothes</li>
+                    <li>Joggers</li>
+                    <li>CNIC (Very important)</li>
+                    <li>Personal Medication</li>
+                  </ul>
+                </div>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Photos</h2>
+                <div class="container">
+                  <div class="gallery" style="padding: 10px">
+                    <div class="gallery__bg"><img src="#" /></div>
+
+                    <div class="gallery__main">
+                      <div class="gallery__core"><img src="#" /></div>
+                      <div class="gallery__track"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Insurance</h2>
+
+                <p class="text-lg">Not Covered</p>
+
+                <hr
+                  class="w-full my-5 bg-black"
+                  style="border: 1px solid black"
+                />
+
+                <h2 class="font-bold text-2xl">Cancellation Policy</h2>
+                <div class="container">
+                  <ul class="list-disc">
+                    <li>
+                      7 days before the departure, a 50% deduction from the
+                      advance amount
+                    </li>
+                    <li>
+                      3 days before the departure, a 75% deduction from the
+                      advance amount
+                    </li>
+                    <li>
+                      Less than 3 days before the departure, 100% deduction from
+                      the advance amount
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="profile" role="tabpanel">
+                <h1>Profile</h1>
+                <table>
+                  <!-- Broken Here -->
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th></th>
+                      <th>User</th>
+                      <th>Gift Description</th>
+                      <th>Order</th>
+                      <th>Date</th>
+                      <th>Payment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="checkbox" class="check" /></td>
+                      <td>
+                        <div class="chip-user d-flex flex-items-md-middle">
+                          <div class="chip-user__img mr-1">
+                            <img
+                              src="https://s.gravatar.com/avatar/0a07df079fd7a07e4cd0e5668835296c?s=80"
+                              class="img-circle"
+                            />
+                          </div>
+                          <div class="chip-user__name">
+                            <span class="real-name d-block">My Name</span>
+                            <span class="alias-name d-block">Other Name</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-primary text-bold">Amazon</td>
+                      <td class="text-primary text-bold">#123</td>
+                      <td>11/28/2016</td>
+                      <td><i class="fa fa-cc-paypal"></i></td>
+                    </tr>
+                  </tbody>
+                  <!-- to here -->
+                </table>
+              </div>
+              <div class="tab-pane" id="messages" role="tabpanel">
+                <h1>Messages</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Pariatur, sapiente consectetur saepe. Debitis odit, dolorum,
+                  earum molestias mollitia officia animi? Iste id, repellendus
+                  beatae perspiciatis illo molestiae, at quia asperiores.
+                </p>
+                <hr />
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+                  laudantium repellat ratione velit tempora quis corrupti itaque
+                  aperiam veritatis vel magnam, eveniet enim expedita est
+                  repudiandae, totam reprehenderit voluptas! Quia.
+                </p>
+              </div>
+              <div class="tab-pane" id="settings" role="tabpanel">
+                <h1>Settings</h1>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Deleniti beatae error quibusdam excepturi repudiandae eius,
+                  vel porro voluptatem temporibus aperiam. Labore aliquid ea
+                  quidem, adipisci tenetur tempora dolore ipsa et.
+                </p>
+              </div>
+              <div class="tab-pane" id="Insurance" role="tabpanel">
+                <h1>Insurance</h1>
+              </div>
+              <div class="tab-pane" id="policy" role="tabpanel">
+                <h1>Policy</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div id="alert"></div>
+            <div class="py-5 bg-white p-3">
+              <h2 class="text-danger text-center font-bold text-3xl py-3">
+                Booking Detail
+              </h2>
+              <form method="post" id="details">
+                <div class="row">
+                  <div class="form-group col-lg-12">
+                    <div class="row" id="session">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <select
+                            class="custom-select w-full"
+                            name="gender"
+                            id="gender2"
+                          >
+                            <option selected="person">Person</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <input
+                            class="form-control"
+                            style="background: none"
+                            type="date"
+                            value="Date"
+                            name="bookingDate"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-froup">
+                          <!-- <label for="name">Name</label> -->
+                          <input
+                            class="form-control"
+                            style="background: none"
+                            id="uname2"
+                            name="name"
+                            required=""
+                            type="text"
+                            placeholder="Enter Your Name"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12 pt-3">
+                        <div class="form-group">
+                          <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                          <input
+                            type="text"
+                            id="cnic"
+                            class="floatLabel form-control"
+                            name="cnicNumber"
+                            placeholder="CNIC"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-froup">
+                          <!-- <label for="name">Name</label> -->
+                          <input
+                            type="text"
+                            class="floatLabel form-control"
+                            placeholder="Country"
+                            name="country"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 pt-3">
+                        <div class="form-group">
+                          <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                          <input
+                            type="tel"
+                            id="mobile"
+                            class="floatLabel form-control"
+                            name="mobileNumber"
+                            placeholder="Mobile Number"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                          <input
+                            type="email"
+                            id="Email"
+                            class="floatLabel form-control"
+                            name="emailAddress"
+                            placeholder="Email Address"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <!-- <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Date</label> -->
+                          <input
+                            type="password"
+                            id="password"
+                            class="floatLabel form-control"
+                            name="userPass"
+                            placeholder="Enter Your Password"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div
+                        class="p-2 text-left mt-2"
+                        style="background-color: rgb(0, 0, 0)"
+                      >
+                        <h2 class="text-white text-lg">
+                          Total Price
+                          <span
+                            class="float-right text-md"
+                            id="totalPrice"
+                          ></span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="py-3 text-center">
+                        <button
+                          type="button"
+                          class="bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full"
+                          id="proceed"
+                        >
+                          Proceed Booking
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <footer class="main-footer pt-5">
+        <div class="container">
+          <div class="footer-content">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                <div class="logo-widget footer-widget">
+                  <figure class="logo-box">
+                    <a href="#"><img src="assets/img/Logo.png" alt="" /></a>
+                  </figure>
+                  <div class="search-input">
+                    <a href="" target="_blank" hidden></a>
+                    <input type="text" placeholder="Email Address" />
+                    <div class="autocom-box">
+                      <!-- here list are inserted from javascript -->
+                    </div>
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column"
+              >
+                <div class="service-widget footer-widget">
+                  <div class="footer-title">Destination</div>
+                  <div class="row">
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-11.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-12.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-13.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-14.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-for-res">
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-15.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="p-2">
+                          <img
+                            style="object-fit: cover; width: 100%"
+                            src="assets/img/footer-16.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+                <div class="contact-widget footer-widget">
+                  <div class="footer-title">Contacts Us</div>
+                  <ul class="list text-white">
+                    <li>
+                      <i class="fas fa-location-dot text-white text-lg"></i>
+                      <a href="#"> Street ,12 DHA Karachi</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-envelope text-white text-lg"></i>
+                      <a href="#"> Travelojs@gmail.com</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-mobile text-white text-lg"></i>
+                      <a href="#"> 978 454 12 56</a>
+                    </li>
+
+                    <!-- <li><a href="#">Animal Saves</a></li>
+                              <li><a href="#">Help Orphan</a></li> -->
+                  </ul>
+                  <p class="footer-title text-white mt-5">
+                    Policy <br />
+                    Terms & Condition
+                  </p>
+                </div>
+                <div
+                  class="social-links text-white text-center text-md-center pt-3 pt-md-0 text-2xl"
+                >
+                  <a href="#" class="twitter"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                  <a href="#" class="facebook"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
+                  <a href="#" class="instagram"
+                    ><i class="fa-brands fa-twitter"></i
+                  ></a>
+                  <a href="#" class="google-plus"
+                    ><i class="fa-brands fa-whatsapp"></i
+                  ></a>
+                  <!-- <a href="#" class="linkedin"><i class="fas fa-linkedin"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="col-lg-12 col-md-6 col-sm-12 column">
+            <div class="credits text-center text-white">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+              Designed by
+              <a href="https://deskworksol.com/">Desk Work Solution</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- main-footer end -->
+    </section>
+    <!--  -->
+    <!-- final -->
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+    <!-- <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script> -->
+    <!-- <script src="https://mosafir.pk/assets/MonthPicker/MonthPicker.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js" type="text/javascript"></script> -->
+    <script
+      src="https://kit.fontawesome.com/6f7625b96d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script> -->
+    <script>
+      let switching = false;
+
+      function updateGallery() {
+        $(".gallery__core img, .gallery__bg img").attr(
+          "src",
+          galleryItems[0].url
+        );
+        $(".gallery__track").empty();
+        $.each(galleryItems, function (index, item) {
+          $(".gallery__track").append(
+            '<div class="gallery__track__item ' +
+              (index == 0 ? "active" : "") +
+              '"><img src="' +
+              item.thumb +
+              '" data-full="' +
+              item.url +
+              '" alt=""></div>'
+          );
+        });
+      }
+
+      function getNewImages() {
+        $.get(
+          "https://api.unsplash.com/search/photos?client_id=j0z73f4p5WNBe2OK28CHq-GY9kN2GxPj2DpS_bV6nFs&page=1&per_page=9&orientation=squarish&query=" +
+            $(".gallery__search input").val(),
+          function (data) {
+            let items = [];
+            $.each(data.results, function (index, item) {
+              console.log(item);
+              let newItem = {
+                id: item.id,
+                url: item.urls.regular,
+                thumb: item.urls.thumb,
+              };
+              items.push(newItem);
+            });
+            console.log(items);
+            galleryItems = items;
+            updateGallery();
+          }
+        );
+      }
+
+      $(".gallery__search input").on(
+        "keyup",
+        debounce(() => getNewImages())
+      );
+      $(".gallery__track").on("click", ".gallery__track__item", function () {
+        if (!switching) {
+          switching = true;
+          $(this).addClass("active").siblings().removeClass("active");
+          // animate in new core image and background image
+          const $oldBGImg = $(".gallery__bg img");
+          const $oldImg = $(".gallery__core img");
+          const newImg = $(this).find("img").data("full");
+          const $newImg = $('<img class="slide-in" src="' + newImg + '">');
+          const $newBGImg = $('<img class="fade-in" src="' + newImg + '">');
+          $(".gallery__core").append($newImg);
+          $(".gallery__bg").append($newBGImg);
+          setTimeout(function () {
+            $newImg.addClass("shift-up");
+            $oldImg.addClass("shift-up");
+            $oldBGImg.addClass("fade-out");
+            $newBGImg.addClass("fading");
+            setTimeout(function () {
+              $(".gallery__core img").eq(0).remove();
+              $(".gallery__bg img").eq(0).remove();
+              $(".slide-in").removeClass("slide-in shift-up");
+              $(".fade-in").removeClass("fade-in fading");
+              switching = false;
+            }, 400);
+          }, 10);
+        }
+      });
+
+      let galleryItems = [
+        {
+          id: "Id2f5Y9dq1g",
+          url: "https://images.unsplash.com/photo-1439189614644-ff891ff78aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw1fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1439189614644-ff891ff78aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw1fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "pzC7JfukhUM",
+          url: "https://images.unsplash.com/photo-1565475668349-0130bea1059b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1565475668349-0130bea1059b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "ystlZBTbKiY",
+          url: "https://images.unsplash.com/photo-1562207520-19c0ebd8264f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwyfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1562207520-19c0ebd8264f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwyfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "DOb-2jd0sbc",
+          url: "https://images.unsplash.com/photo-1460221584296-7b799eba9475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwzfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1460221584296-7b799eba9475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHwzfHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "k_4m9_0PO3Q",
+          url: "https://images.unsplash.com/photo-1454663501801-75a30ab23c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw0fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1454663501801-75a30ab23c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw0fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "NFB5zdUvb-c",
+          url: "https://images.unsplash.com/photo-1515739887843-45210db2c01a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw2fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1515739887843-45210db2c01a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw2fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "xsFxnW9_KZ0",
+          url: "https://images.unsplash.com/photo-1574786527860-f2e274867c91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw3fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1574786527860-f2e274867c91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw3fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "dSTalS8QzTg",
+          url: "https://images.unsplash.com/photo-1570032257806-7272438f38da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw4fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1570032257806-7272438f38da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw4fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+        {
+          id: "z7tQUhBVOrY",
+          url: "https://images.unsplash.com/photo-1447755086558-cb9e3830d677?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw5fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=1080",
+          thumb:
+            "https://images.unsplash.com/photo-1447755086558-cb9e3830d677?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNzI5Njd8MHwxfHNlYXJjaHw5fHxtb3VudGFpbnN8ZW58MHwyfHx8MTY0OTc4ODEwNg&ixlib=rb-1.2.1&q=80&w=200",
+        },
+      ];
+
+      updateGallery(); // once on load
+
+      function debounce(func, timeout = 300) {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            func.apply(this, args);
+          }, timeout);
+        };
+      }
+    </script>
+    <script>
+      /*
+       *  SIKTEC Product Gallery - v4.0.0
+       */
+      (function ($, window, document, undefined) {
+        "use strict";
+
+        // Create the defaults once
+        var pluginName = "productGallery";
+        var defaults = {
+          placeholder: "https://via.placeholder.com/900x900?text=Select One",
+          enableZoomer: true,
+          zoomerScale: 1.5,
+        };
+
+        // The actual plugin constructor
+        function ProductGallery(element, options) {
+          this.element = element;
+          this.$element = $(element);
+          this.settings = $.extend({}, defaults, options);
+          this._defaults = defaults;
+          this._name = pluginName;
+          this.parts = {
+            container: null,
+            currentContainer: null,
+            currentImage: null,
+            thumbsContainer: null,
+            thumbsList: null,
+          };
+          this.init();
+        }
+
+        // Avoid Plugin.prototype conflicts
+        $.extend(ProductGallery.prototype, {
+          init: function () {
+            // Initialization logic here
+            this.build();
+          },
+          build: function () {
+            // Parts:
+            this.parts.container = this.$element;
+            this.parts.currentContainer =
+              this.$element.find(".gallery-current");
+            this.parts.currentImage = this.$element.find(
+              ".gallery-current > img"
+            );
+            this.parts.thumbsContainer = this.$element.find(".gallery-thumbs");
+            this.parts.thumbsList = this.$element.find(".gallery-thumbs > ul");
+
+            //Validate:
+            if (
+              this.parts.currentContainer.length === 0 ||
+              this.parts.thumbsContainer.length === 0 ||
+              this.parts.thumbsList.length === 0
+            ) {
+              console.warn("Invalid HTML Structure");
+              return;
+            }
+
+            //Primary image or placeholder:
+            if (this.parts.currentImage.length === 0) {
+              this.parts.currentContainer.html(
+                `<img src='${this.settings.placeholder}' />`
+              );
+              this.parts.currentImage = this.$element.find(
+                ".gallery-current > img"
+              );
+            }
+
+            //set scale if not allready:
+            if (!this.parts.currentImage.attr("scale")) {
+              this.parts.currentImage.attr("scale", this.settings.zoomerScale);
+            }
+
+            //Set displayed:
+            this._addDisplayed();
+
+            //Attach events:
+            if (this.settings.enableZoomer) {
+              window.addEventListener("load", this._attachZoomer.bind(this));
+            }
+            $(this.element).on(
+              "click",
+              ".gallery-thumbs > ul > li > img",
+              (e) => this._clickSwitch(e)
+            );
+          },
+          addImage: function (img, pos = -1) {
+            let $img = $(`<li><img src='${img}' /></li>`);
+            // add the elements
+            if (pos === 0) {
+              this.parts.thumbsList.prepend($img);
+            } else if (pos < 0) {
+              this.parts.thumbsList.append($img);
+            } else {
+              let thumbs = this.parts.thumbsList.find("li > img");
+              if (pos < thumbs.length) {
+                $img.insertAfter(thumbs.eq(pos).parent());
+              } else {
+                this.parts.thumbsList.append($img);
+              }
+            }
+            //Re-Displayed:
+            this._addDisplayed();
+          },
+          addImages: function (images, pos = -1) {
+            for (const img of images) {
+              this.addImage(img, pos);
+            }
+          },
+          removeImage: function (img) {
+            let thumbs = this.parts.thumbsList.find("li > img");
+            let ele = $();
+            //Get the element:
+            if (typeof img === "number" && img >= 0 && img < thumbs.length) {
+              ele = thumbs.eq(img);
+            } else if (typeof img === "string") {
+              ele = thumbs.filter(`[src='${img}']`);
+            }
+            //Remove:
+            if (ele.length) {
+              //if displayed:
+              if (ele.hasClass("displayed")) {
+                this.parts.currentImage.attr("src", this.settings.placeholder);
+              }
+              ele.parent().remove();
+              //Re-Displayed:
+              this._addDisplayed();
+            }
+          },
+          removeImages: function (images) {
+            let sorted = images.sort(function (a, b) {
+              return typeof b === "string" || typeof a === "string"
+                ? b > a
+                : b - a;
+            });
+            for (const img of sorted) {
+              this.removeImage(img);
+            }
+          },
+          clearAll: function () {
+            let thumbs = this.parts.thumbsList.find("li > img");
+            let _this = this;
+            thumbs.each(function (i, e) {
+              _this.removeImage(0);
+            });
+          },
+          switchImage: function (to_img = 0) {
+            // index or src
+            let thumbs = this.parts.thumbsList.find("li > img");
+            if (
+              typeof to_img === "number" &&
+              thumbs.length > to_img &&
+              to_img >= 0
+            ) {
+              let img = thumbs.eq(to_img);
+              this.parts.currentImage.attr("src", img.attr("src"));
+            } else if (typeof to_img === "string") {
+              this.parts.currentImage.attr("src", to_img);
+            }
+            this._addDisplayed();
+          },
+          _clickSwitch: function (e) {
+            let img = $(e.currentTarget);
+            if (img.attr("src")) {
+              this.switchImage(img.attr("src"));
+            }
+          },
+          _zoomElement: function (e, start_x, start_y, width, height) {
+            let clientX = "clientX" in e ? e.clientX : e.detail.clientX;
+            let clientY = "clientY" in e ? e.clientY : e.detail.clientY;
+            let ele = e.currentTarget ? e.currentTarget : e.target;
+            let p_x = ((clientX - start_x) * 100) / width;
+            let p_y = ((clientY - start_y) * 100) / height;
+            console.log(start_x, start_y, clientX, clientY);
+            ele.style.transformOrigin = p_x + "% " + p_y + "%";
+          },
+          _attachZoomer: function () {
+            let img = this.parts.currentImage[0];
+            //img.parentElement.style.height = img.height+'px';
+            //img.parentElement.style.width = img.width + 'px';
+            img.parentElement.style.overflow = "hidden";
+            img.addEventListener("mousemove", (e) =>
+              this._zoomElement(
+                e,
+                img.parentElement.offsetLeft,
+                img.parentElement.offsetTop,
+                img.parentElement.offsetWidth,
+                img.parentElement.offsetHeight
+              )
+            );
+            img.addEventListener("mouseenter", function (e) {
+              let ele = e.currentTarget ? e.currentTarget : e.target;
+              let scale = ele.getAttribute("scale");
+              ele.style.transform = scale
+                ? "scale(" + scale + ")"
+                : "scale(1.5)";
+            });
+            img.addEventListener("mouseleave", function (e) {
+              let ele = e.currentTarget ? e.currentTarget : e.target;
+              ele.style.transform = "none";
+            });
+
+            // mobile:
+            const off = panEvents(img);
+            img.addEventListener("panmove", (e) =>
+              this._zoomElement(
+                e,
+                img.parentElement.offsetLeft,
+                img.parentElement.offsetTop,
+                img.parentElement.offsetWidth,
+                img.parentElement.offsetHeight
+              )
+            );
+            img.addEventListener("panstart", (e) => {
+              let ele = e.currentTarget ? e.currentTarget : e.target;
+              let scale = ele.getAttribute("scale");
+              ele.style.transform = scale
+                ? "scale(" + scale + ")"
+                : "scale(1.5)";
+            });
+            img.addEventListener("panend", (e) => {
+              let ele = e.currentTarget ? e.currentTarget : e.target;
+              ele.style.transform = "none";
+            });
+          },
+          _addDisplayed: function () {
+            let current = this.parts.currentImage.attr("src");
+            let thumbs = this.parts.thumbsList.find("li > img");
+            thumbs.removeClass("displayed");
+            thumbs.filter(`[src='${current}']`).addClass("displayed");
+          },
+        });
+
+        // Touch Support events
+        function panEvents(element) {
+          let touchId, startPosition;
+
+          function touchstart(e) {
+            touchId = e.changedTouches[0].identifier;
+            startPosition = createDetail(e.changedTouches[0]);
+            panstart(startPosition);
+            off();
+          }
+
+          function mousedown(e) {
+            if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) {
+              return;
+            }
+
+            startPosition = createDetail(e);
+            panstart(startPosition);
+            window.addEventListener("mousemove", mousemove);
+            window.addEventListener("mouseup", mouseup);
+            off();
+          }
+
+          function panstart(startPosition) {
+            return element.dispatchEvent(
+              new CustomEvent("panstart", {
+                detail: startPosition,
+              })
+            );
+          }
+
+          function touchmove(e) {
+            const data = getTouchById(e, touchId);
+
+            if (data) {
+              if (!panmove(data) && e.cancelable) {
+                e.preventDefault();
+              }
+            }
+          }
+
+          const mousemove = panmove;
+
+          function panmove(data) {
+            return element.dispatchEvent(
+              new CustomEvent("panmove", {
+                detail: createDetail(data, startPosition),
+                cancelable: true,
+              })
+            );
+          }
+
+          function touchend(e) {
+            const data = getTouchById(e, touchId);
+
+            if (data) {
+              panend(data);
+            }
+          }
+
+          function mouseup(e) {
+            window.removeEventListener("mousemove", mousemove);
+            window.removeEventListener("mouseup", mouseup);
+            panend(e);
+          }
+
+          function panend(data) {
+            element.dispatchEvent(
+              new CustomEvent("panend", {
+                detail: createDetail(data, startPosition),
+              })
+            );
+
+            touchId = null;
+            startPosition = null;
+            on();
+          }
+
+          function createDetail(data, startPosition) {
+            const detail = {
+              screenX: data.screenX,
+              screenY: data.screenY,
+              clientX: data.clientX,
+              clientY: data.clientY,
+              pageX: data.pageX,
+              pageY: data.pageY,
+            };
+
+            if (startPosition) {
+              detail.offsetX = data.clientX - startPosition.clientX;
+              detail.offsetY = data.clientY - startPosition.clientY;
+            }
+
+            return detail;
+          }
+
+          function getTouchById(e, id) {
+            for (let i = 0; i < e.changedTouches.length; i++) {
+              if (e.changedTouches[i].identifier === id) {
+                return e.changedTouches[i];
+              }
+            }
+          }
+
+          function on() {
+            element.addEventListener("touchstart", touchstart);
+            element.addEventListener("mousedown", mousedown);
+          }
+
+          function off() {
+            element.removeEventListener("touchstart", touchstart);
+            element.removeEventListener("mousedown", mousedown);
+          }
+
+          element.addEventListener("touchmove", touchmove);
+          element.addEventListener("touchend", touchend);
+
+          on();
+
+          return function destroy() {
+            off();
+            element.removeEventListener("touchmove", touchmove);
+            element.removeEventListener("touchend", touchend);
+          };
+        }
+
+        // A really lightweight plugin wrapper around the constructor,
+        // preventing against multiple instantiations
+        $.fn[pluginName] = function (options = {}) {
+          return this.each(function () {
+            if (!$.data(this, pluginName)) {
+              $.data(this, pluginName, new ProductGallery(this, options));
+            }
+          });
+        };
+      })(jQuery, window, document);
+
+      // $(function () {
+      //   //Initiate the gallery plugin:
+      //   $(".product-gallery").productGallery();
+
+      //   //Programtically add images:
+      //   $(".product-gallery")
+      //     .data("productGallery")
+      //     .addImages(["assets/img/hunza2.png", "assets/img/hunza3.png"]);
+      // }
+
+      // );
+    </script>
+    <script>
+      /*jshint esversion: 6 */
+
+      let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      let dateObj = new Date();
+      let month = dateObj.getMonth();
+      let currMonth = dateObj.getMonth();
+      let year = dateObj.getFullYear();
+      let currYear = dateObj.getFullYear();
+      let tDate = dateObj;
+      let stayOpen = false;
+      let pickedDate = "";
+      let table = _("cal");
+      let cal = _("calender");
+      let xhr = new XMLHttpRequest();
+      let fromTo = "from";
+
+      _("month").innerHTML = months[month];
+      _("year").innerHTML = year;
+      _("prev").addEventListener("click", () => trackMonth("prev"));
+      _("next").addEventListener("click", () => trackMonth("next"));
+      _("dep-from").addEventListener("keyup", searchCities);
+      _("dep-to").addEventListener("keyup", searchCities);
+      _("dep-from").addEventListener("focus", () => whichCityBox("from"));
+      _("dep-to").addEventListener("focus", () => whichCityBox("to"));
+      _("one-way").addEventListener("click", () => toggleReturnBox("one-way"));
+      _("return").addEventListener("click", () => toggleReturnBox("return"));
+      _("flight-form").addEventListener("submit", onSubmit);
+
+      _("leave-date").addEventListener("focus", showCalender);
+      _("leave-date").addEventListener("blur", hideCalender);
+      _("return-date").addEventListener("focus", showCalender);
+      _("return-date").addEventListener("blur", hideCalender);
+
+      function _(id) {
+        return document.getElementById(id);
+      }
+
+      function addZero(d) {
+        if (d < 10) return "0" + d;
+        return d;
+      }
+
+      function convertDate(d) {
+        var ts = new Date(d).toString();
+        ts = ts.substr(0, 15);
+        console.log(ts);
+        return ts;
+      }
+
+      function onSubmit(e) {
+        e.preventDefault();
+
+        let form = this;
+        let txt = "<h3>Search Form Results</h3>";
+        let returnTrip = form.elements[0];
+        let onewayTrip = form.elements[1];
+        let departFrom = form.elements[2].value;
+        let arrivingAt = form.elements[3].value;
+        let leavingOn = form.elements[4].value;
+        let returningOn = form.elements[5].value;
+        let adults = form.elements[6].value;
+        let children = form.elements[7].value;
+        let classType = form.elements[8].value;
+
+        if (returnTrip.checked === true)
+          txt += "<p>This is a <strong>Return</strong> trip.</p>";
+        if (onewayTrip.checked === true)
+          txt += "<p>This is a <strong>One Way</strong> trip.</p>";
+        txt +=
+          "<p>Leaving on <strong>" +
+          convertDate(leavingOn) +
+          "</strong> from <strong>" +
+          departFrom +
+          "</strong>";
+        if (returningOn.length > 1) {
+          txt +=
+            "<p>Returning on <strong>" +
+            convertDate(returningOn) +
+            "</strong> from <strong>" +
+            arrivingAt +
+            "</strong></p>";
+        } else {
+          txt += " and travelling to <strong>" + arrivingAt + "</strong></p>";
+        }
+        txt +=
+          "<p>Flying <strong>" +
+          classType +
+          "</strong> class with <strong>" +
+          adults +
+          "</strong> adults and <strong>" +
+          children +
+          "</strong> children.</p>";
+        _("confirm").style.opacity = 1;
+        _("confirm").innerHTML = txt;
+        this.reset();
+      }
+
+      function toggleReturnBox(btn) {
+        let box1 = _("return-box");
+        console.log(this.checked);
+        if (btn == "return") {
+          box1.style.opacity = 1;
+        }
+        if (btn == "one-way") {
+          box1.style.opacity = 0;
+        }
+      }
+
+      function whichCityBox(ft) {
+        fromTo = ft;
+      }
+
+      function addFromCity(o) {
+        _("dep-from").value = o.innerText;
+        _("depart-res").style.display = "none";
+      }
+
+      function addToCity(o) {
+        _("dep-to").value = o.innerText;
+        _("arrive-res").style.display = "none";
+      }
+
+      function searchCities(e) {
+        console.log(fromTo);
+        let query = e.target.value;
+        let url =
+          "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" +
+          query +
+          "&types=(cities)&key=AIzaSyA3sUMaNBtaRTxi8KLraNrYCVga4xK55WE";
+
+        let country = "";
+        let resp;
+
+        xhr.open("GET", url);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          var DONE = 4; // readyState 4 means the request is done.
+          var OK = 200; // status 200 is a successful return.
+          if (xhr.readyState === DONE) {
+            if (xhr.status === OK) resp = JSON.parse(xhr.responseText);
+            var data = resp.predictions;
+            for (var i = 0; i < data.length; i++) {
+              if (fromTo == "from") {
+                country +=
+                  '<p id="country" onclick="addFromCity(this)">' +
+                  data[i].description +
+                  "</p>";
+              }
+              if (fromTo == "to") {
+                country +=
+                  '<p id="country" onclick="addToCity(this)">' +
+                  data[i].description +
+                  "</p>";
+              }
+            }
+          } else {
+            console.log("Error: " + xhr.status); // An error occurred during the request.
+          }
+          if (fromTo == "from") {
+            _("depart-res").innerHTML = country;
+          }
+          if (fromTo == "to") {
+            _("arrive-res").innerHTML = country;
+          }
+        };
+      }
+
+      function positionCalender(box) {
+        let boxPos = _("search-form").getBoundingClientRect(),
+          leaveBoxPos = _("leave-date").getBoundingClientRect(),
+          returnBoxPos = _("return-date").getBoundingClientRect(),
+          leaveTopPos = leaveBoxPos.top - boxPos.top,
+          leaveLeftPos = leaveBoxPos.left - boxPos.left,
+          returnTopPos = returnBoxPos.top - boxPos.top,
+          returnLeftPos = returnBoxPos.left - boxPos.left;
+
+        if (box === "leave-date") {
+          cal.style.top = leaveTopPos + 32 + "px";
+          cal.style.left = leaveLeftPos + "px";
+        }
+        if (box === "return-date") {
+          cal.style.top = returnTopPos + 32 + "px";
+          cal.style.left = returnLeftPos + "px";
+        }
+      }
+
+      function showCalender() {
+        cal.style.opacity = 1;
+        cal.style.pointerEvents = "auto";
+        stayOpen = true;
+        pickedDate = this.id;
+        positionCalender(pickedDate);
+      }
+
+      function hideCalender() {
+        if (!stayOpen) {
+          cal.style.opacity = 0;
+          cal.style.pointerEvents = "none";
+        }
+      }
+
+      function getCellDate() {
+        var tds = document.querySelectorAll("tbody td"),
+          i;
+        for (i = 0; i < tds.length; i++) {
+          let btn = tds[i];
+          btn.addEventListener("click", fetchDate);
+        }
+      }
+
+      function fetchDate() {
+        let td = this.getAttribute("data-date");
+        if (pickedDate == "leave-date") {
+          _("leave-date").setAttribute("value", td);
+        }
+        if (pickedDate == "return-date") {
+          _("return-date").value = td;
+        }
+        stayOpen = false;
+        hideCalender();
+      }
+
+      function trackMonth(dir) {
+        if (dir == "prev") month -= 1;
+        if (dir == "next") month += 1;
+        if (month > 11) {
+          month = 0;
+          year += 1;
+        }
+        if (month < 0) {
+          month = 11;
+          year -= 1;
+        }
+        _("month").innerHTML = months[month];
+        _("year").innerHTML = year;
+        calender(month, year);
+      }
+
+      function calender(month, year) {
+        let today = dateObj.getDate();
+        let firstDay = new Date(year, month, 1);
+        let startDay = firstDay.getDay();
+        let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var monthLength = new Date(year, month + 1, 0).getDate();
+        let html = "";
+        let dd;
+
+        // DAYS OF WEEK HEADER
+        html += "<tr>";
+        for (let i = 0; i < weekDays.length; i++) {
+          html += "<td>" + weekDays[i] + "</td>";
+        }
+        html += "</tr>";
+
+        // CALENDAR PART
+        var count = 0; // count of table's <td> cells
+        if (startDay !== 0) {
+          // Leave these cells blank
+          html += "<tr><td colspan='" + startDay + "'></td>";
+          count = startDay;
+        }
+        for (var day = 1; day <= monthLength; day++) {
+          if (count % 7 === 0) {
+            // new table row
+            html += "<tr>";
+          }
+
+          dd = addZero(year) + "/" + addZero(month + 1) + "/" + day;
+
+          if ((count < today && month == currMonth) || year < currYear) {
+            html += "<td class='closed' data-date=" + dd + ">" + day + "</td>";
+          } else {
+            html += "<td class='normal' data-date=" + dd + ">" + day + "</td>";
+          }
+
+          count++;
+          if (count % 7 === 0) {
+            html += "</tr>";
+          }
+        }
+        var blankCells = 7 - (count % 7);
+        if (blankCells < 7) {
+          html += "<td colspan='" + blankCells + "'></td></tr>";
+        }
+
+        table.innerHTML = html;
+
+        getCellDate();
+      }
+
+      calender(month, year);
+      positionCalender("leave-date");
+    </script>
+    <!-- <script>
+	$('#owl-carousel-3').owlCarousel({
+    loop: false,
+    margin: 30,
+    dots: false,
+    nav: true,
+    items: 2,
+	responsive: {
+                  0: {
+                    items: 1,
+                    nav: true
+                  },
+                  600: {
+                    items: 1,
+                    nav: false
+                  },
+                  1000: {
+                    items: 3,
+                    nav: true,
+                    loop: true,
+                    margin: 20
+                  }
+                }
+})
+  </script>
+  <script>
+	$('#owl-carousel-4').owlCarousel({
+    loop: false,
+    margin: 30,
+    dots: false,
+    nav: true,
+    items: 2,
+	responsive: {
+                  0: {
+                    items: 1,
+                    nav: true
+                  },
+                  600: {
+                    items: 1,
+                    nav: false
+                  },
+                  1000: {
+                    items: 3,
+                    nav: true,
+                    loop: true,
+                    margin: 20
+                  }
+                }
+})
+  </script>
+    <script>
+        $('#owl-carousel-5').owlCarousel({
+        loop: false,
+        margin: 30,
+        dots: false,
+        nav: true,
+        items: 2,
+        responsive: {
+                      0: {
+                        items: 1,
+                        nav: true
+                      },
+                      600: {
+                        items: 1,
+                        nav: false
+                      },
+                      1000: {
+                        items: 3,
+                        nav: true,
+                        loop: true,
+                        margin: 20
+                      }
+                    }
+    })
+      </script> -->
+    <script>
+      $("[name=tab]").each(function (i, d) {
+        var p = $(this).prop("checked");
+        //   console.log(p);
+        if (p) {
+          $("article").eq(i).addClass("on");
+        }
+      });
+
+      $("[name=tab]").on("change", function () {
+        var p = $(this).prop("checked");
+
+        // $(type).index(this) == nth-of-type
+        var i = $("[name=tab]").index(this);
+
+        $("article").removeClass("on");
+        $("article").eq(i).addClass("on");
+      });
+    </script>
+
+    <script type="module" src="./firebase/database/product.js"></script>
+
+    <script>
+      $("#alert").on("click", ".closebtn", function () {
+        $(".alert").remove();
+      });
+    </script>
+  </body>
+</html>
